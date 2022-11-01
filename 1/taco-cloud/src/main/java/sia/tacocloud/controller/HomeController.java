@@ -8,6 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
+        System.out.println("To home page....");
         return "home";
     }
 
