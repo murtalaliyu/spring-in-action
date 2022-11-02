@@ -43,21 +43,33 @@ public class DesignTacoController {
     for (Type type : types) {
       model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
     }
+
+    // I want to see what model looks like
+    System.out.println("model:\n" + model + "\n");
   }
 
   @ModelAttribute(name = "tacoOrder")
   public TacoOrder order() {
+    System.out.println("in tacoOrder...\n");
     return new TacoOrder();
   }
 
   @ModelAttribute(name = "taco")
   public Taco taco() {
+    System.out.println("in taco...\n");
     return new Taco();
   }
 
   @GetMapping
   public String showDesignForm() {
     return "design";
+  }
+
+  @PostMapping
+  public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+    tacoOrder.addTaco(taco);
+    log.info("Processing taco: {}", taco);
+    return "redirect:/orders/current";
   }
 
   private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
