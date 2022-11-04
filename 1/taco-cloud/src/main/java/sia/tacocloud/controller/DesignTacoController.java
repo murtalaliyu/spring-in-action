@@ -4,8 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,30 +48,37 @@ public class DesignTacoController {
     }
 
     // I want to see what model looks like
-    System.out.println("model:\n" + model + "\n");
+    log.info("model: " + model);
   }
 
   @ModelAttribute(name = "tacoOrder")
   public TacoOrder order() {
-    System.out.println("in tacoOrder...\n");
+    log.info("in tacoOrder...");
     return new TacoOrder();
   }
 
   @ModelAttribute(name = "taco")
   public Taco taco() {
-    System.out.println("in taco...\n");
+    log.info("in taco...");
     return new Taco();
   }
 
   @GetMapping
   public String showDesignForm() {
+    log.info("showing design page...");
     return "design";
   }
 
   @PostMapping
-  public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+  public String processTaco(@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder) {
+    if (errors.hasErrors()) {
+      log.info("bro, you have taco errors: {}", taco);
+      return "design";
+    }
+    
     tacoOrder.addTaco(taco);
     log.info("Processing taco: {}", taco);
+
     return "redirect:/orders/current";
   }
 
