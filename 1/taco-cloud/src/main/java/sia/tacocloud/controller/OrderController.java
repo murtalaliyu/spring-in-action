@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import lombok.extern.slf4j.Slf4j;
+import sia.tacocloud.data.OrderRepository;
 import sia.tacocloud.model.TacoOrder;
 
 @Slf4j
@@ -18,11 +19,17 @@ import sia.tacocloud.model.TacoOrder;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 public class OrderController {
+
+  private OrderRepository orderRepository;
+
+  public OrderController(OrderRepository orderRepository) {
+    this.orderRepository = orderRepository;
+  }
   
   @GetMapping("/current")
   public String orderForm() {
     log.info("showing orderForm page...");
-    return "/orderForm";
+    return "orderForm";
   }
 
   @PostMapping
@@ -33,6 +40,7 @@ public class OrderController {
       return "orderForm";
     }
     
+    orderRepository.save(order);
     log.info("Order submitted: {}", order);
     sessionStatus.setComplete();
 

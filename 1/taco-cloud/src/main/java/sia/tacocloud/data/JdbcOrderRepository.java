@@ -13,7 +13,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import sia.tacocloud.model.Ingredient;
 import sia.tacocloud.model.IngredientRef;
 import sia.tacocloud.model.Taco;
 import sia.tacocloud.model.TacoOrder;
