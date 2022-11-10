@@ -1,8 +1,8 @@
-package sia.tacocloud.data;
+package tacos.data;
 
 import java.util.Optional;
 
-import sia.tacocloud.model.Ingredient;
+import tacos.Ingredient;
 
 public interface IngredientRepository {
 

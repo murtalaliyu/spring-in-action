@@ -1,4 +1,4 @@
-package sia.tacocloud.model;
+package tacos;
 
 import java.util.List;
 import java.io.Serializable;

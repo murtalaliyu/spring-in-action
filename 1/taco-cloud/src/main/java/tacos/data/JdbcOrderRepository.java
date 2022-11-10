@@ -1,4 +1,4 @@
-package sia.tacocloud.data;
+package tacos.data;
 
 import java.sql.Types;
 import java.util.Arrays;
@@ -13,9 +13,9 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import sia.tacocloud.model.IngredientRef;
-import sia.tacocloud.model.Taco;
-import sia.tacocloud.model.TacoOrder;
+import tacos.IngredientRef;
+import tacos.Taco;
+import tacos.TacoOrder;
 
 @Repository
 public class JdbcOrderRepository implements OrderRepository {

@@ -1,4 +1,4 @@
-package sia.tacocloud.controller;
+package tacos.web;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.extern.slf4j.Slf4j;
-import sia.tacocloud.data.IngredientRepository;
-import sia.tacocloud.model.Ingredient;
-import sia.tacocloud.model.Ingredient.Type;
-import sia.tacocloud.model.Taco;
-import sia.tacocloud.model.TacoOrder;
+import tacos.data.IngredientRepository;
+import tacos.Ingredient;
+import tacos.Ingredient.Type;
+import tacos.Taco;
+import tacos.TacoOrder;
 
 @Slf4j
 @Controller

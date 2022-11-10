@@ -1,6 +1,6 @@
-package sia.tacocloud.data;
+package tacos.data;
 
-import sia.tacocloud.model.TacoOrder;
+import tacos.TacoOrder;
 
 public interface OrderRepository {
 
