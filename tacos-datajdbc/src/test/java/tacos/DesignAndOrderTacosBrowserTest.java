@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,7 @@ public class DesignAndOrderTacosBrowserTest {
   }
 
   @Test
+  // @Disabled
   public void testDesignATacoPage_HappyPath() throws Exception {
     browser.get(homePageUrl());
     clickDesignATaco();
@@ -54,6 +56,7 @@ public class DesignAndOrderTacosBrowserTest {
   }
 
   @Test
+  // @Disabled
   public void testDesignATacoPage_EmptyOrderInfo() throws Exception {
     browser.get(homePageUrl());
     clickDesignATaco();
@@ -65,6 +68,7 @@ public class DesignAndOrderTacosBrowserTest {
   }
 
   @Test
+  // @Disabled
   public void testDesignATacoPage_InvalidOrderInfo() throws Exception {
     browser.get(homePageUrl());
     clickDesignATaco();

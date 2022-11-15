@@ -4,13 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.MethodMode;
-import org.springframework.transaction.annotation.Transactional;
 
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
@@ -60,7 +58,7 @@ public class OrderRepositoryTests {
     assertThat(fetchedOrder.getCcNumber()).isEqualTo("4111111111111111");
     assertThat(fetchedOrder.getCcExpiration()).isEqualTo("10/23");
     assertThat(fetchedOrder.getCcCVV()).isEqualTo("123");
-    assertThat(fetchedOrder.getPlacedAt()).isEqualTo(savedOrder.getPlacedAt());
+    assertThat(fetchedOrder.getPlacedAt().getTime()).isEqualTo(savedOrder.getPlacedAt().getTime());
     List<Taco> tacos = fetchedOrder.getTacos();
     assertThat(tacos.size()).isEqualTo(2);
     assertThat(tacos).containsExactlyInAnyOrder(taco1, taco2);
