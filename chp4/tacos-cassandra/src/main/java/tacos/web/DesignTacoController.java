@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.TacoOrder;
+import tacos.TacoUDRUtils;
 import tacos.Taco;
 import tacos.data.IngredientRepository;
 
@@ -71,7 +72,7 @@ public class DesignTacoController {
       return "design";
     }
 
-    tacoOrder.addTaco(taco);
+    tacoOrder.addTaco(TacoUDRUtils.toTacoUDT(taco));
 
     return "redirect:/orders/current";
   }
