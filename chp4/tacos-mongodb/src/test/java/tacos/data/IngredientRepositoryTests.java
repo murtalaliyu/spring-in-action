@@ -7,13 +7,11 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 
 @SpringBootTest
-@Transactional
 public class IngredientRepositoryTests {
 
   @Autowired
