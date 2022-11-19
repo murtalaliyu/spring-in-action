@@ -1,5 +1,6 @@
 package tacos.web;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,22 +17,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.TacoOrder;
+import tacos.User;
 import tacos.Taco;
 import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
+import tacos.data.UserRepository;
 
+@Slf4j
 @Controller
 @RequestMapping("/design")
-@SessionAttributes("tacoOrder")
+@SessionAttributes("order")
 public class DesignTacoController {
 
+  private TacoRepository tacoRepository;
+  private UserRepository userRepository;
   private final IngredientRepository ingredientRepo;
 
   @Autowired
-  public DesignTacoController(
-        IngredientRepository ingredientRepo) {
+  public DesignTacoController(TacoRepository tacoRepository, UserRepository userRepository, IngredientRepository ingredientRepo) {
+    this.tacoRepository = tacoRepository;
+    this.userRepository = userRepository;
     this.ingredientRepo = ingredientRepo;
   }
 
@@ -47,7 +56,7 @@ public class DesignTacoController {
     }
   }
 
-  @ModelAttribute(name = "tacoOrder")
+  @ModelAttribute(name = "order")
   public TacoOrder order() {
     return new TacoOrder();
   }
@@ -55,6 +64,13 @@ public class DesignTacoController {
   @ModelAttribute(name = "taco")
   public Taco taco() {
     return new Taco();
+  }
+
+  @ModelAttribute(name = "user")
+  public User user(Principal principal) {
+    String username = principal.getName();
+    User user = userRepository.findByUsername(username);
+    return user;
   }
 
   @GetMapping
@@ -65,13 +81,16 @@ public class DesignTacoController {
   @PostMapping
   public String processTaco(
       @Valid Taco taco, Errors errors,
-      @ModelAttribute TacoOrder tacoOrder) {
+      @ModelAttribute TacoOrder order) {
+
+        log.info(" --- Saving taco");
 
     if (errors.hasErrors()) {
       return "design";
     }
 
-    tacoOrder.addTaco(taco);
+    Taco saved = tacoRepository.save(taco);
+    order.addTaco(saved);
 
     return "redirect:/orders/current";
   }
