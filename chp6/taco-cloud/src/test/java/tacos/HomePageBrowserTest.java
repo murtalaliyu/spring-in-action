@@ -36,7 +36,7 @@ public class HomePageBrowserTest {
   
   @Test
   public void testHomePage() {
-    String homePage = "http://localhost:" + port;
+    String homePage = "https://localhost:" + port;
     browser.get(homePage);
     
     String titleText = browser.getTitle();

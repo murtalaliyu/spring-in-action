@@ -2,3 +2,15 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+
+server:
+  port: 8443
+  ssl:
+    key-store: file:///C:/Users/murta/Documents/spring-in-action/chp6/mykeys.jks
+    key-store-password: letmein
+    key-password: letmein
+
+logging:
+  file:
+    path: file:///C:/Users/murta/Documents/spring-in-action/chp6/
+    file: TacoCloud.log
