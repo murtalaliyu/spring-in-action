@@ -14,3 +14,24 @@ logging:
   file:
     path: file:///C:/Users/murta/Documents/spring-in-action/chp6/
     file: TacoCloud.log
+  level:
+    tacos: DEBUG
+
+taco:
+  orders:
+    pageSize: 10
+
+---
+spring:
+  config:
+    activate: 
+      onProfile: prod
+
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+
+logging:
+  level:
+    tacos: WARN

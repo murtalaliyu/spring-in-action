@@ -22,6 +22,7 @@ import tacos.data.TacoRepository;
 import tacos.data.UserRepository;
 import tacos.security.SecurityConfig;
 import tacos.service.OrderAdminService;
+import tacos.web.OrderProps;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
@@ -48,6 +49,9 @@ public class HomeControllerTest {
 
   @MockBean
   private PasswordEncoder passwordEncoder;
+
+  @MockBean
+  private OrderProps orderProps;
 
   @Test
   public void testHomePage() throws Exception {
