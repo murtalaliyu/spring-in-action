@@ -10,9 +10,9 @@
     <version>0.0.7-SNAPSHOT</version>
   </parent>
 
-  <artifactId>tacocloud-data</artifactId>
-  <name>tacocloud-data</name>
-  <description>Taco Cloud Data</description>
+  <artifactId>tacocloud-api</artifactId>
+  <name>tacocloud-api</name>
+  <description>Taco Cloud API</description>
   <packaging>jar</packaging>
 
   <properties>
@@ -24,23 +24,30 @@
   <dependencies>
     <dependency>
       <groupId>sia</groupId>
+      <artifactId>tacocloud-data</artifactId>
+      <version>${tacocloud.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>sia</groupId>
       <artifactId>tacocloud-domain</artifactId>
       <version>${tacocloud.version}</version>
     </dependency>
 
     <dependency>
+      <groupId>sia</groupId>
+      <artifactId>tacocloud-security</artifactId>
+      <version>${tacocloud.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-rest</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
 
     <dependency>

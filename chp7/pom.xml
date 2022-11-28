@@ -19,12 +19,15 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <tacocloud.version>${project.vresion}</tacocloud.version>
+    <tacocloud.version>${project.version}</tacocloud.version>
   </properties>
 
   <modules>
     <module>tacocloud-domain</module>
     <module>tacocloud-data</module>
+    <module>tacocloud-security</module>
+    <module>tacocloud-api</module>
+    <module>tacocloud</module>
   </modules>
 
   <repositories>
