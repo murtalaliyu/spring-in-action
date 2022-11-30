@@ -19,7 +19,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@RestResource(rel = "tacos", path="tacos")
+@RestResource(rel = "tacos", path="tacos")  // to avoid URL path pluralization (i.e. tacoes)
 public class Taco {
 
   @Id
