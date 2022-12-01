@@ -27,6 +27,7 @@
     <module>tacocloud-data</module>
     <module>tacocloud-security</module>
     <module>tacocloud-api</module>
+    <module>tacocloud-restclient</module>
     <module>tacocloud</module>
   </modules>
 
