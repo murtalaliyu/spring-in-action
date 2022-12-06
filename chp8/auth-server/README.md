@@ -20,11 +20,15 @@ The command above will return the access token. Copy the access token. In the CL
 
 4. Use the access_token to make requests
 
-curl localhost:8080/data-api/ingredients -H "Content-type: application/json" -d "$sample_json_body" -H "Authorization: Bearer $access_token"
+curl localhost:8080/data-api/** -H "Content-type: application/json" -d "$sample_json_body" -H "Authorization: Bearer $access_token"
 
 Notes:
 
-1: The $access_token has a TTL of 5 minutes. Use the refresh token to request a new $access_token.
+1: When the $access_token expires, use the following command to request for a new one:
 
-2: $sample_json_body: {\"id\":\"FISH\", \"name\":\"Tasty Fish\", \"type\":1}
+curl localhost:9000/oauth2/token -H "Content-type: application/x-www-form-urlencoded" -d "grant_type=refresh_token&refresh_token=$refresh_token" -u taco-admin-client:secret
+
+2: The $access_token has a TTL of 5 minutes. Use the refresh token to request a new $access_token.
+
+3: $sample_json_body: {\"id\":\"FISH\", \"name\":\"Tasty Fish\", \"type\":1}
 
