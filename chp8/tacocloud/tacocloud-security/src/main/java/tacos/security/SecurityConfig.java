@@ -74,10 +74,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 //            .antMatchers("/**").access("permitAll")
 
-            .antMatchers(HttpMethod.POST, "/data-api/ingredients").hasRole("ADMIN")
-            .antMatchers(HttpMethod.DELETE, "/data-api/ingredients/**").hasRole("ADMIN")
+            .antMatchers(HttpMethod.POST, "/data-api/ingredients").hasAuthority("SCOPE_writeIngredients")
+            .antMatchers(HttpMethod.DELETE, "/data-api//ingredients").hasAuthority("SCOPE_deleteIngredients")
 
-            .and()
+            .and().oauth2ResourceServer(oauth2 -> oauth2.jwt()) // enable the resource server
+
+            //.and()
             .formLogin()
             .loginPage("/login")
 
@@ -97,8 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .headers()
             .frameOptions()
-            .sameOrigin()
-    ;
+            .sameOrigin();
   }
   
 }
