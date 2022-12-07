@@ -12,13 +12,22 @@
     </parent>
 
     <groupId>sia</groupId>
-    <artifactId>auth-server</artifactId>
-    <name>auth-server</name>
+    <artifactId>tacocloud-admin</artifactId>
+    <name>tacocloud-admin</name>
     <version>0.0.1-SNAPSHOT</version>
-    <description>Authorization Server for Taco Cloud</description>
+    <description>Admin client to demonstrate OAuth2 and Spring</description>
 
     <properties>
         <java.version>11</java.version>
+        <!--
+			Skipping tests because the tests require a running authorization server.
+			This still allows for the code to be compiled, even if not automatically
+			tested; better than nothing.
+			If you want to run the tests, start the authorization server (in ../auth-server)
+			and then remove this property.
+			TODO: Fix tests to not require a running authorization server.
+		-->
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
@@ -29,30 +38,12 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-authorization-server</artifactId>
-            <version>0.2.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
@@ -70,18 +61,17 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
 
