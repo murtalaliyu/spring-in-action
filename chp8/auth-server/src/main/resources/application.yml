@@ -1,2 +1,9 @@
 server:
   port: 9000
+
+# TODO: what is this?
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

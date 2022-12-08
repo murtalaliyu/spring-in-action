@@ -20,8 +20,8 @@ public class TacoCloudClient {
     private RestTemplate rest;
     //private Traverson traverson;
 
-    private String ingredientsUrl = "http://localhost:8080/data-api/ingredients";
-    private String ingredientByIdUrl = "http://localhost:8080/data-api/ingredients/{id}";
+    private String ingredientsUrl = "http://127.0.0.1:8080/data-api/ingredients";
+    private String ingredientByIdUrl = "http://127.0.0.1:8080/data-api/ingredients/{id}";
 
     public TacoCloudClient(RestTemplate rest) {
         this.rest = rest;

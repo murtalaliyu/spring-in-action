@@ -76,6 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
             .antMatchers(HttpMethod.POST, "/data-api/ingredients").hasAuthority("SCOPE_writeIngredients")
             .antMatchers(HttpMethod.DELETE, "/data-api//ingredients").hasAuthority("SCOPE_deleteIngredients")
+            .antMatchers("/**").access("permitAll")
 
             .and().oauth2ResourceServer(oauth2 -> oauth2.jwt()) // enable the resource server
 
