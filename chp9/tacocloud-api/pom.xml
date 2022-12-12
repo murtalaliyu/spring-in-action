@@ -41,7 +41,11 @@
             <version>${tacocloud.version}</version>
         </dependency>
 
-        <!-- TODO: add tacocloud-messaging-jms -->
+        <dependency>
+            <groupId>sia</groupId>
+            <artifactId>tacocloud-messaging-jms</artifactId>
+            <version>${tacocloud.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
