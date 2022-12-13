@@ -1,7 +1,5 @@
 package tacos.web.api;
 
-// TODO: implement messaging first
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tacos.TacoOrder;

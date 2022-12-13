@@ -30,6 +30,7 @@
         <module>tacocloud</module>
         <module>tacocloud-restclient</module>
         <module>tacocloud-web</module>
+        <module>tacocloud-ui</module>
         <module>tacocloud-messaging-jms</module>
     </modules>
 

@@ -47,7 +47,11 @@
             <version>${tacocloud.version}</version>
         </dependency>
 
-        <!-- TODO: implement tacocloud-ui -->
+        <dependency>
+            <groupId>sia</groupId>
+            <artifactId>tacocloud-ui</artifactId>
+            <version>${tacocloud.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
