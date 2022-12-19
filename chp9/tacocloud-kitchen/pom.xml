@@ -28,7 +28,10 @@
             <artifactId>spring-boot-starter-artemis</artifactId>
         </dependency>
 
-        <!-- TODO: add amqp -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
 
         <!-- TODO: add kafka -->
 
