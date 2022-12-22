@@ -28,7 +28,7 @@ public class RabbitOrderMessagingService implements OrderMessagingService {
 //        Message message = converter.toMessage(order, props);
 //        rabbit.send("tacocloud.order", message);
 
-        rabbit.convertAndSend("tacocloud.order.queue", order,
+        rabbit.convertAndSend(order,
                 new MessagePostProcessor() {
                     @Override
                     public Message postProcessMessage(Message message) throws AmqpException {
