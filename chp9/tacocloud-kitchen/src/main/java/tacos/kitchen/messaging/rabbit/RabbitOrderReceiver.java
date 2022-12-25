@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import tacos.TacoOrder;
+import tacos.kitchen.OrderReceiver;
 
 @Component
-public class RabbitOrderReceiver {
+public class RabbitOrderReceiver implements OrderReceiver {
 
     private RabbitTemplate rabbit;
     private MessageConverter converter;
@@ -20,6 +21,7 @@ public class RabbitOrderReceiver {
         this.converter = rabbit.getMessageConverter();
     }
 
+    @Override
     public TacoOrder receiveOrder() {
 //        Message message = rabbit.receive("tacocloud.order.queue");  // timeout is set in application.yml
 //        return message != null

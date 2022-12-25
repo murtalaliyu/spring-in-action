@@ -41,11 +41,23 @@
             <version>${tacocloud.version}</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>sia</groupId>-->
+<!--            <artifactId>tacocloud-messaging-jms</artifactId>-->
+<!--            <version>${tacocloud.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>sia</groupId>
-            <artifactId>tacocloud-messaging-jms</artifactId>
+            <artifactId>tacocloud-messaging-rabbitmq</artifactId>
             <version>${tacocloud.version}</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>sia</groupId>-->
+<!--            <artifactId>tacocloud-messaging-kafka</artifactId>-->
+<!--            <version>${tacocloud.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

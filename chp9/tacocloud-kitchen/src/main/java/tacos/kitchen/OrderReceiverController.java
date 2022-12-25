@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import tacos.TacoOrder;
 
-@Profile("jms-template")    // TODO: add rabbitmq-template
+@Profile({"jms-template", "rabbitmq-template"})
 @Controller
 @RequestMapping("/orders")
 @RequiredArgsConstructor

@@ -4,6 +4,6 @@ import tacos.TacoOrder;
 
 public interface OrderMessagingService {
 
-    public void sendOrder(TacoOrder order);
+    void sendOrder(TacoOrder order);
 
 }

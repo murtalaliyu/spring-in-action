@@ -4,8 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import tacos.TacoOrder;
 
-// TODO: ??? Why does this exist?
-
 @Component
 @Slf4j
 public class KitchenUI {
