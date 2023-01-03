@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+---
+
+spring:
+  profiles: jms-template, jms-listener
+
+  # The values given here are actually the default values. But they are actually
+  # set here as an example of setting the Artemis properties.
+  jms:
+    template:
+      receive-timeout: 2
+
+  artemis:
+    host: localhost
+    port: 64686
+    user: tacoweb
+    password: l3tm3in
+    embedded:
+      enabled: false
+
+  rabbitmq:
+    template:
+      receive-timeout: 30000
+
+  kafka:
+#    bootstrap-servers:
+#      - localhost:9092
+
+    template:
+      default-topic: tacocloud.orders.topic
+
+    consumer:
+#      group:
+#        id: group-id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#      properties:
+#        spring:
+#          json:
+#            trusted:
+#              packages: *
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
