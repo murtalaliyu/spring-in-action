@@ -23,7 +23,8 @@
     </properties>
 
     <modules>
-
+        <module>tacocloud-domain-r2dbc</module>
+        <module>tacocloud-data-r2dbc</module>
     </modules>
 
 </project>
