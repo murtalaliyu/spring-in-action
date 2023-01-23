@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
           http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -12,9 +11,9 @@
         <version>0.0.13-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tacocloud-data-r2dbc</artifactId>
-    <name>tacocloud-data-r2dbc</name>
-    <description>Taco Cloud Data-R2DBC</description>
+    <artifactId>tacocloud-api-r2dbc</artifactId>
+    <name>tacocloud-api</name>
+    <description>Taco Cloud API</description>
     <packaging>jar</packaging>
 
     <properties>
@@ -26,23 +25,40 @@
     <dependencies>
         <dependency>
             <groupId>sia</groupId>
+            <artifactId>tacocloud-data-r2dbc</artifactId>
+            <version>${tacocloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>sia</groupId>
             <artifactId>tacocloud-domain-r2dbc</artifactId>
             <version>${tacocloud.version}</version>
         </dependency>
 
         <dependency>
+            <groupId>sia</groupId>
+            <artifactId>tacocloud-security-r2dbc</artifactId>
+            <version>${tacocloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>sia</groupId>
+            <artifactId>tacocloud-messaging-noop-r2dbc</artifactId>
+            <version>${tacocloud.version}</version>
+        </dependency>
+
+        <!-- TODO: jms-r2dbc -->
+        <!-- TODO: rabbitmq-r2dbc -->
+        <!-- TODO: kafka-r2dbc -->
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <dependency>
@@ -53,8 +69,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-artemis</artifactId>
         </dependency>
 
         <dependency>
@@ -64,15 +79,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.r2dbc</groupId>
-            <artifactId>r2dbc-h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

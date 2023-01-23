@@ -2,6 +2,7 @@ package tacos;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,7 +17,7 @@ public class TacoOrder {
 
     private String deliveryName;
     private String deliveryStreet;
-    private String deliverCity;
+    private String deliveryCity;
     private String deliveryState;
     private String deliveryZip;
     private String ccNumber;
@@ -25,9 +26,13 @@ public class TacoOrder {
 
     private Set<Long> tacoIds = new HashSet<>();
 
-    private List<Taco> tacos = new ArrayList<>();
+    @Transient
+    private transient List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
+        if (taco.getId() != null) {
+            this.tacoIds.add(taco.getId());
+        }
     }
 }

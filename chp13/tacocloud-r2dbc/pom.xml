@@ -13,7 +13,7 @@
 
     <groupId>sia</groupId>
     <artifactId>taco-cloud-r2dbc-parent</artifactId>
-    <version>0.0.12-SNAPSHOT</version>
+    <version>0.0.13-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -25,6 +25,12 @@
     <modules>
         <module>tacocloud-domain-r2dbc</module>
         <module>tacocloud-data-r2dbc</module>
+        <module>tacocloud-api</module>
+        <module>tacocloud-security</module>
+        <module>tacocloud-messaging-noop</module>
+        <module>tacocloud-restclient</module>
+        <module>tacocloud-ui</module>
+        <module>tacocloud</module>
     </modules>
 
 </project>
