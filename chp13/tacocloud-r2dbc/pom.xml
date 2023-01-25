@@ -31,6 +31,7 @@
         <module>tacocloud-restclient</module>
         <module>tacocloud-ui</module>
         <module>tacocloud</module>
+        <module>tacocloud-web</module>
     </modules>
 
 </project>

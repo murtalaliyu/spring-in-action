@@ -19,27 +19,33 @@ spring:
   data:
     rest:
       base-path: /api
+  datasource:
+    url: jdbc:h2:mem:tacocloud
+    generate-unique-name: false
+    name: tacocloud
+    username: user
+    password: pass
 
   # The values given here are actually the default values. But they are explicitly
   # set here as an example of setting the Kafka properties.
-  kafka:
-    bootstrap-servers:
-      - localhost:9092
-    template:
-      default-topic: tacocloud.orders.topic
-    producer:
-      keySerializer: org.springframework.kafka.support.serializer.JsonSerializer
-      valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
+#  kafka:
+#    bootstrap-servers:
+#      - localhost:9092
+#    template:
+#      default-topic: tacocloud.orders.topic
+#    producer:
+#      keySerializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-  h2:
-    console:
-      enabled: true
+#  h2:
+#    console:
+#      enabled: true
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
 
 ---
 

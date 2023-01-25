@@ -10,7 +10,7 @@ import tacos.data.TacoRepository;
 
 import static tacos.Ingredient.Type;
 
-@Profile("!prod")
+//@Profile("!prod")
 @Configuration
 public class DevelopmentConfig {
 
