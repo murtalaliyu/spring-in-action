@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
+import tacos.data.UserRepository;
 
 import static tacos.Ingredient.Type;
 
@@ -15,10 +16,14 @@ import static tacos.Ingredient.Type;
 public class DevelopmentConfig {
 
     @Bean
-    public CommandLineRunner dataLoader(IngredientRepository repo, PasswordEncoder encoder, TacoRepository tacoRepo) {
+    public CommandLineRunner dataLoader(IngredientRepository repo, PasswordEncoder encoder, TacoRepository tacoRepo, UserRepository userRepo) {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
+                User user = new User("lolguy", "dontsaveplainpasswords", "Lol Guy", "123 haha street",
+                        "Wazobia", "NY", "23232", "1231231234", "adf@asdf.com");
+                userRepo.save(user).subscribe();
+
                 Ingredient flourTortilla = saveAnIngredient("FLTO", "Flour Tortilla", Type.WRAP);
                 Ingredient cornTortilla = saveAnIngredient("COTO", "Corn Tortilla", Type.WRAP);
                 Ingredient groundBeef = saveAnIngredient("GRBF", "Ground Beef", Type.PROTEIN);
@@ -61,10 +66,9 @@ public class DevelopmentConfig {
 
             private Ingredient saveAnIngredient(String id, String name, Type type) {
                 Ingredient ingredient = new Ingredient(id, name, type);
-                repo.save(ingredient);
+                repo.save(ingredient).subscribe();
                 return ingredient;
             }
-
         };
     }
 
