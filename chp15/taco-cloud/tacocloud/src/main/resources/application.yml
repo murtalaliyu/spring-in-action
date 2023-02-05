@@ -24,6 +24,17 @@ management:
       #base-path: /management (default will be /actuator)
       exposure:
         include: '*'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: full
+
+info:
+  contact:
+    email: support@tacocloud.com
+    phone: 123-456-7890
 
 ---
 

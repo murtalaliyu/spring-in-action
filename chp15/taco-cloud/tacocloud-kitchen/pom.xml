@@ -5,16 +5,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>sia</groupId>
+        <artifactId>taco-cloud-parent</artifactId>
+        <version>0.0.15-SNAPSHOT</version>
+    </parent>
+
     <artifactId>tacocloud-kitchen</artifactId>
     <name>tacocloud-kitchen</name>
     <description>Taco Cloud Kitchen</description>
     <packaging>jar</packaging>
-
-    <parent>
-        <groupId>sia</groupId>
-        <artifactId>taco-cloud-parent</artifactId>
-        <version>0.0.10-SNAPSHOT</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

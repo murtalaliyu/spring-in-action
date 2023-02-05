@@ -27,6 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/ingredients").permitAll()
                 .antMatchers("/api/tacos", "/api/orders/**").permitAll()
                 .antMatchers(HttpMethod.PATCH, "/api/ingredients").permitAll()
+//                .antMatchers(HttpMethod.POST, "/actuator/env").permitAll()
+//                .antMatchers(HttpMethod.DELETE, "/actuator/env").permitAll()
                 .antMatchers("/**").access("permitAll")
 
                 .and().formLogin().loginPage("/login")
@@ -35,7 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and().logout().logoutSuccessUrl("/")
 
-                .and().csrf().ignoringAntMatchers("/h2-console/**", "/api/**")
+                .and().csrf()
+//                .ignoringAntMatchers("/h2-console/**", "/api/**")
+//                .ignoringAntMatchers("/actuator/env")
 
                 .and().headers().frameOptions().sameOrigin();   // Allow pages to be loaded in frames from the same origin; needed for H2-Console
     }
