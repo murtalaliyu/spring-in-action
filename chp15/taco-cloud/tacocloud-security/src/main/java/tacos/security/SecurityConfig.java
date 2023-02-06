@@ -22,26 +22,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()    // needed for Angular/CORS
-                .antMatchers(HttpMethod.POST, "/api/ingredients").permitAll()
-                .antMatchers("/api/tacos", "/api/orders/**").permitAll()
-                .antMatchers(HttpMethod.PATCH, "/api/ingredients").permitAll()
+//                .authorizeRequests()
+//                .antMatchers(HttpMethod.OPTIONS).permitAll()    // needed for Angular/CORS
+//                .antMatchers(HttpMethod.POST, "/api/ingredients").permitAll()
+//                .antMatchers("/api/tacos", "/api/orders/**").permitAll()
+//                .antMatchers(HttpMethod.PATCH, "/api/ingredients").permitAll()
 //                .antMatchers(HttpMethod.POST, "/actuator/env").permitAll()
 //                .antMatchers(HttpMethod.DELETE, "/actuator/env").permitAll()
-                .antMatchers("/**").access("permitAll")
-
-                .and().formLogin().loginPage("/login")
-
-                .and().httpBasic().realmName("Taco Cloud")
-
-                .and().logout().logoutSuccessUrl("/")
-
-                .and().csrf()
+//                .antMatchers("/**").access("permitAll")
+//
+//                .and().formLogin().loginPage("/login")
+//
+//                .and().httpBasic().realmName("Taco Cloud")
+//
+//                .and().logout().logoutSuccessUrl("/")
+//
+//                .and().csrf()
 //                .ignoringAntMatchers("/h2-console/**", "/api/**")
 //                .ignoringAntMatchers("/actuator/env")
-
-                .and().headers().frameOptions().sameOrigin();   // Allow pages to be loaded in frames from the same origin; needed for H2-Console
+//
+//                .and().headers().frameOptions().sameOrigin();   // Allow pages to be loaded in frames from the same origin; needed for H2-Console
+                .csrf().disable();
     }
 
     @Bean
