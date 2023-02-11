@@ -14,7 +14,7 @@
 
     <groupId>sia</groupId>
     <artifactId>admin-server</artifactId>
-    <version>0.0.15-SNAPSHOT</version>
+    <version>0.0.16-SNAPSHOT</version>
     <name>admin-server</name>
     <description>Tacocloud Admin Server Web UI Dashboard</description>
 
