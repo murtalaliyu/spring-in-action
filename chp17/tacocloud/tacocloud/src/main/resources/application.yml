@@ -1,0 +1,64 @@
+security:
+  user:
+    name: buzz
+    password: infinity
+
+taco:
+  orders:
+    pageSize: 10
+
+discount:
+  codes:
+    abcdef: 10
+
+spring:
+  application:
+    name: tacocloud
+  data:
+    rest:
+      base-path: /api
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+    username: user
+    password: pass
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+        username: admin
+        password: 53cr3t
+  jmx:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      #base-path: /management (default will be /actuator)
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: full
+
+info:
+  contact:
+    email: support@tacocloud.com
+    phone: 123-456-7890
+
+---
+
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+
+  logging:
+    level:
+      tacos: WARN

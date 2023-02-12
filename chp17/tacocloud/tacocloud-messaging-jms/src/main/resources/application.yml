@@ -1,0 +1,9 @@
+spring:
+  jms:
+    template:
+      default-destination: tacocloud.order.queue
+  artemis:
+    host: localhost
+    port: 64686
+    user: tacoweb
+    password: l3tm3in
