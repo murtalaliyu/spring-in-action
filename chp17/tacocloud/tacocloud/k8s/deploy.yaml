@@ -17,3 +17,15 @@ spec:
       containers:
       - name: tacocloud-container
         image: sia/tacocloud:0.0.17-SNAPSHOT
+        livenessProbe:
+          initialDelaySeconds: 180
+          periodSeconds: 5
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+        readinessProbe:
+          initialDelaySeconds: 180
+          periodSeconds: 5
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080

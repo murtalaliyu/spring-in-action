@@ -43,11 +43,17 @@ management:
   info:
     git:
       mode: full
+  health:
+    probes:
+      enabled: true
 
 info:
   contact:
     email: support@tacocloud.com
     phone: 123-456-7890
+
+server:
+  shutdown: graceful #default is 30seconds. use 'spring.lifecycle.timeout-per-shutdown-phase: #s' to change this default
 
 ---
 
