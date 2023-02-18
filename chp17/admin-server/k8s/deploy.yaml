@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-server-deploy
+  labels:
+    app: admin-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: admin-server
+  template:
+    metadata:
+      labels:
+        app: admin-server
+    spec:
+      containers:
+      - name: admin-server-container
+        image: admin-server:0.0.17-SNAPSHOT
